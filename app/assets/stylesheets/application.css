@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+ .navbar {
+     background-color: rgb(0 38 62);
+ }
+ .lr_logo {
+     width: 90px;
+ }
+ body {
+     margin-top: 75px;
+     padding-bottom: 700px;
+ }
+#footer{
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+}
+.app_name{color: white; font-size: 20px; justify-content: center;}
+.app_name :hover{}
+
+#user_card{max-width: 500px;}
