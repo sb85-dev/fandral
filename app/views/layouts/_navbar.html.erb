@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top navbar-expand-lg" data-bs-theme="dark" potision="fixed">
     <div class="container-fluid">
-        <a class="navbar-brand" href="<%=root_path%>"><%=image_tag("lr_logo.png", :class => "lr_logo")%></a>
+        <a class="navbar-brand" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"><%=image_tag("lr_logo.png", :class => "lr_logo")%></a>
         <p class="app_name my-auto pe-1">Fandral</p>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -33,7 +33,7 @@
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
             <% if user_signed_in? %>
-                <%= link_to "My Profile", edit_user_registration_path, {class: "btn btn-primary me-md-2 my-2 text-nowrap"}%>
+                <%# <%= link_to "My Profile", edit_user_registration_path, {class: "btn btn-primary me-md-2 my-2 text-nowrap"}%>
                 <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-primary me-md-2 my-2 text-nowrap" %>
             <% else %>
                 <%= link_to "New User", new_user_registration_path, {class: "btn btn-primary me-md-2 my-2 text-nowrap"} %>

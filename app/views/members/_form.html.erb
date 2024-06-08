@@ -1,0 +1,29 @@
+<div class="row mx-1">
+    <div class="mx-auto border border-black mt-5 shadow p-3 mb-5 bg-body-tertiary rounded", id="user_card">
+        <%= form_with(model: member) do |f| %>
+            <div class="container text-start">   
+                <% if member.errors.any? %>
+                    <div style="color: red">
+                        <ul>
+                            <% member.errors.each do |error| %>
+                                <li><%= error.full_message %></li>
+                            <% end %>
+                        </ul>
+                    </div>
+                <% end %>
+            </div>
+            <div class="field">
+                <%=f.label :first_name %>
+                <%=f.text_field :first_name, autofocus: true, autocomplete: "name", class: "w-100 border border-black shadow p-2", placeholder: "Enter the Member's first name here"%>
+            </div>
+            <div class="field">
+                <%=f.label :last_name %>
+                <%=f.text_field :last_name, autofocus: true, autocomplete: "name", class: "w-100 border border-black shadow p-2", placeholder: "Enter the Member's first name here"%>
+            </div>
+            <br>
+            <div>
+                <%= f.submit %>
+            </div>
+        <% end %>
+    </div>
+</div>
