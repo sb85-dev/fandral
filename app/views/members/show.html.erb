@@ -1,5 +1,20 @@
 <p style="color: green"><%= notice %></p>
 <%= render @member %>
+<h1><%= @member.full_name%></h1>
+    <thead>
+            <tr>
+                <th>Account Numbers</th>
+        <table>
+        </tr>
+        </thead>
+        <tbody>
+            <% @account_numbers.each do |account_number|%>
+            <tr>
+                <td><%= account_number.number %></td>
+            </tr>
+            <%end%>
+        </tbody>
+    </table>
 <div>
   <%= link_to "Edit this member", edit_member_path(@member) %> |
   <%= link_to "Back to members", members_path %>

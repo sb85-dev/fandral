@@ -9,9 +9,11 @@
                     <thead>
                         <tr>
                             <th>Member Name</th>
+                            <th>Timer</th>
                             <th>Date Added</th>
                             <th>Date Updated</th>
                             <th>Status</th>
+                            <th>Alert Category</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -19,9 +21,11 @@
                             <%= render member %>
                             <tr>
                                 <td><%=link_to member.full_name, member%></td>
+                                <td>Placeholder for Timer</td>
                                 <td><%=member.created_at.strftime("%m-%d-%y")%></td>
                                 <td><%=member.updated_at.strftime("%m-%d-%y")%></td>
-                                <td>Placeholder for alert status</td>
+                                <td>Placeholder for alert status (monitor, request doc etc)</td>
+                                <td>Placeholder for Alert Category (reg cc, chargeback etc)</td>
                             </tr>
                         <% end %>
                     </tbody>
