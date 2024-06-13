@@ -1,0 +1,2 @@
+json.extract! alert, :id, :member_id, :assigned_to, :date_of_notice, :received_from, :type_of_review, :date_oldest_account, :decision, :monitor_until, :fca_maintain, :document_request, :date_documents_requested, :documents_received, :fdra_facts_notes, :olb_review_by_lr, :background_review_by_lr, :fraud_flags, :idv_docs_received, :loss, :exposure, :funds_returned_reason, :external_account, :created_at, :updated_at
+json.url alert_url(alert, format: :json)

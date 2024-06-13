@@ -1,0 +1,47 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  member: one
+  assigned_to: MyString
+  date_of_notice: 2024-06-13
+  received_from: MyString
+  type_of_review: MyString
+  date_oldest_account: 2024-06-13
+  decision: MyString
+  monitor_until: 2024-06-13
+  fca_maintain: MyString
+  document_request: false
+  date_documents_requested: 2024-06-13
+  documents_received: false
+  fdra_facts_notes: MyText
+  olb_review_by_lr: MyText
+  background_review_by_lr: MyText
+  fraud_flags: MyString
+  idv_docs_received: false
+  loss: 1.5
+  exposure: 1.5
+  funds_returned_reason: MyString
+  external_account: MyString
+
+two:
+  member: two
+  assigned_to: MyString
+  date_of_notice: 2024-06-13
+  received_from: MyString
+  type_of_review: MyString
+  date_oldest_account: 2024-06-13
+  decision: MyString
+  monitor_until: 2024-06-13
+  fca_maintain: MyString
+  document_request: false
+  date_documents_requested: 2024-06-13
+  documents_received: false
+  fdra_facts_notes: MyText
+  olb_review_by_lr: MyText
+  background_review_by_lr: MyText
+  fraud_flags: MyString
+  idv_docs_received: false
+  loss: 1.5
+  exposure: 1.5
+  funds_returned_reason: MyString
+  external_account: MyString

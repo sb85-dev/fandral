@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_11_195148) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_13_220553) do
   create_table "account_numbers", force: :cascade do |t|
     t.integer "number"
     t.integer "member_id", null: false
@@ -18,6 +18,33 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_11_195148) do
     t.datetime "updated_at", null: false
     t.string "account_type"
     t.index ["member_id"], name: "index_account_numbers_on_member_id"
+  end
+
+  create_table "alerts", force: :cascade do |t|
+    t.integer "member_id", null: false
+    t.string "assigned_to"
+    t.date "date_of_notice"
+    t.string "received_from"
+    t.string "type_of_review"
+    t.date "date_oldest_account"
+    t.string "decision"
+    t.date "monitor_until"
+    t.string "fca_maintain"
+    t.boolean "document_request"
+    t.date "date_documents_requested"
+    t.boolean "documents_received"
+    t.text "fdra_facts_notes"
+    t.text "olb_review_by_lr"
+    t.text "background_review_by_lr"
+    t.string "fraud_flags"
+    t.boolean "idv_docs_received"
+    t.float "loss"
+    t.float "exposure"
+    t.string "funds_returned_reason"
+    t.string "external_account"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_alerts_on_member_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -40,4 +67,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_11_195148) do
   end
 
   add_foreign_key "account_numbers", "members"
+  add_foreign_key "alerts", "members"
 end

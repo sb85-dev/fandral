@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :members do
     resources :account_numbers, only: [:new, :create]
+    resources :alerts, except: [:index]
   end
   devise_for :users
   root 'pages#index'
