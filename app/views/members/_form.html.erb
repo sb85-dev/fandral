@@ -22,10 +22,16 @@
             </div>
             <%=f.fields_for :account_numbers do |account_form| %>
                 <div>
-                    <%=account_form.label :number %>
+                    <%=account_form.label :account_number %>
                 </div>
                 <div>
                     <%=account_form.text_field :number %>
+                </div>
+                <div>
+                    <%=account_form.label :account_type %>
+                </div>
+                <div>
+                    <%=account_form.text_field :account_type %>
                 </div>
             <%end%>
             <br>

@@ -1,22 +1,46 @@
-<p style="color: green"><%= notice %></p>
-<%= render @member %>
-<h1><%= @member.full_name%></h1>
-    <thead>
-            <tr>
-                <th>Account Numbers</th>
-        <table>
-        </tr>
-        </thead>
-        <tbody>
-            <% @account_numbers.each do |account_number|%>
-            <tr>
-                <td><%= account_number.number %></td>
-            </tr>
+<div class="container">
+    <%= render @member %>
+    <h1 class="border-bottom"><%= @member.full_name%></h1>
+    <br>
+    <div class="border-bottom">
+        <h3>Alerts</h3>
+        <br>
+        <br>
+    </div>
+    <br>
+    <div class="border-bottom">
+        <h3>Accounts</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Account Numbers</th>
+                    <th>Account Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @accounts.each do |number|%>
+                <tr>
+                    <td><%= number.number %></td>
+                    <td><%= number.account_type%></td>
+                </tr>
+                <%end%>
+            </tbody>
+        </table>
+        <div class="container">
+            <div class="row mx-auto">
+                <%= form_with(model: [@member, @member.account_numbers.build]) do |form|%>
+                        <%=form.label :number%>
+                        <%=form.text_field :number%>
+                        <%=form.label :account_type, class: "ms-2"%>
+                        <%=form.text_field :account_type%>
+                        <%= form.submit 'Add Account', class: "ms-2"%>
+                </div>
             <%end%>
-        </tbody>
-    </table>
-<div>
-  <%= link_to "Edit this member", edit_member_path(@member) %> |
-  <%= link_to "Back to members", members_path %>
-  <%= button_to "Destroy this member", @member, method: :delete %>
+        </div>
+    </div>
+    <div class="border-bottom pt-5">
+        <%= link_to "Edit this member", edit_member_path(@member) %> |
+        <%= link_to "Back to members", members_path %>
+        <%= button_to "Destroy this member", @member, method: :delete %>
+    </div>
 </div>

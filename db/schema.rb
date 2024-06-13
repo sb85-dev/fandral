@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_09_021407) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_11_195148) do
   create_table "account_numbers", force: :cascade do |t|
     t.integer "number"
     t.integer "member_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "account_type"
     t.index ["member_id"], name: "index_account_numbers_on_member_id"
   end
 

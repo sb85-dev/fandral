@@ -9,7 +9,7 @@ class MembersController < ApplicationController
   # GET /members/1 or /members/1.json
   def show
     @member = Member.find(params[:id])
-    @account_numbers = @member.account_numbers
+    @accounts = @member.account_numbers
   end
 
   # GET /members/new
@@ -20,7 +20,6 @@ class MembersController < ApplicationController
 
   # GET /members/1/edit
   def edit
-    # 5.times {@member.account_numbers.build}
   end
 
   # POST /members or /members.json
@@ -29,7 +28,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
-        format.html { redirect_to member_url(@member), notice: "Member was successfully created." }
+        format.html { redirect_to member_url(@member)}
         format.json { render :show, status: :created, location: @member }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -69,7 +68,7 @@ class MembersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def member_params
-      params.fetch(:member, {}).permit(:first_name, :last_name, account_numbers_attributes: [:number])
+      params.fetch(:member, {}).permit(:first_name, :last_name, account_numbers_attributes: [:id, :number, :account_type])
     end
 
 end

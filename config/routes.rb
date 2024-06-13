@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :members
+  resources :members do
+    resources :account_numbers, only: [:new, :create]
+  end
   devise_for :users
   root 'pages#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
