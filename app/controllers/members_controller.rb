@@ -10,6 +10,7 @@ class MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @accounts = @member.account_numbers
+    @alerts = @member.alerts
   end
 
   # GET /members/new

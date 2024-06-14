@@ -8,6 +8,7 @@ class AlertsController < ApplicationController
 
   # GET /alerts/1 or /alerts/1.json
   def show
+
   end
 
   # GET /alerts/new

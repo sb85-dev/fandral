@@ -4,7 +4,26 @@
     <br>
     <div class="border-bottom">
         <h3>Alerts</h3>
-        <br>
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Alert ID</th>
+                        <th>Membder ID</th>
+                        <th>Date Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @member.alerts.each do |alert|%>
+                    <tr>
+                        <td><%= link_to alert.id, member_alert_path(@member, alert) %></td>
+                        <td><%= alert.member.id %></td>
+                        <td><%= alert.created_at.strftime("%m-%d-%y")%></td>
+                    </tr>
+                    <%end%>
+                </tbody>
+            </table>
+        </div>
         <br>
     </div>
     <br>
