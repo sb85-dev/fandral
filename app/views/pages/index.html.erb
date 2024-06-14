@@ -1,20 +1,31 @@
 <div class="container">
     <h1>Alerts</h1>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Member</th>
-                    <th>Date Created</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @alerts.each do |alert|%>
-                <tr>
-                    <td><%= link_to alert.member.full_name, member_path(alert.member)%></td>
-                    <td><%= alert.member.id %></td>
-                    <td><%= alert.created_at.strftime("%m-%d-%y")%></td>
-                </tr>
-                <%end%>
-            </tbody>
-        </table>
+        <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Member</th>
+                        <th>Days Open</th>
+                        <th>Date Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @alerts.each do |alert|%>
+                    <tr>
+                        <td><%= link_to alert.member.full_name, member_path(alert.member)%></td>
+                        <td><%= ((Time.current - alert.created_at.beginning_of_day)/86400).to_i%></td>
+                        <td><%= alert.created_at.strftime("%m-%d-%y")%></td>
+                    </tr>
+                    <%end%>
+                </tbody>
+            </table>
+        <div class="row mx-auto">
+            <p>Page <%= @page+1%></p>
+        </div>
+    </div>
+    <div class="d-flex">
+    <%=link_to "First Page", root_path(page: 0), class: "btn btn-outline-primary mx-2 shadow"%>
+    <%=link_to "Previous Page", root_path(page: @page - 1), class: "btn btn-outline-primary mx-2 shadow"%>
+    <%= link_to "Next Page", root_path(page: @page + 1), class: "btn btn-outline-primary mx-2 shadow"%>
+    </div>
 </div>

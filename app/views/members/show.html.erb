@@ -10,19 +10,22 @@
                     <tr>
                         <th>Alert ID</th>
                         <th>Membder ID</th>
+                        <th>Days Open</th>
                         <th>Date Created</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% @member.alerts.each do |alert|%>
                     <tr>
-                        <td><%= link_to alert.id, member_alert_path(@member, alert) %></td>
+                        <td><%= link_to alert.id, member_alert_path(@member, alert), data: {turbo_frame: 'new_alert'} %></td>
                         <td><%= alert.member.id %></td>
+                        <td><%= ((Time.current - alert.created_at.beginning_of_day)/86400).to_i%></td>
                         <td><%= alert.created_at.strftime("%m-%d-%y")%></td>
                     </tr>
                     <%end%>
                 </tbody>
             </table>
+            <%= link_to "Add New Alert", new_member_alert_path(@member), class: "btn btn-primary shadow"%>
         </div>
         <br>
     </div>
@@ -45,21 +48,24 @@
                 <%end%>
             </tbody>
         </table>
-        <div class="container">
-            <div class="row mx-auto">
+        <div class="me-auto">
+            <div class="row">
                 <%= form_with(model: [@member, @member.account_numbers.build]) do |form|%>
-                        <%=form.label :number%>
-                        <%=form.text_field :number%>
+                        <%=form.label :number %>
+                        <%=form.text_field :number, class: "shadow"%>
                         <%=form.label :account_type, class: "ms-2"%>
-                        <%=form.text_field :account_type%>
-                        <%= form.submit 'Add Account', class: "ms-2"%>
-                </div>
+                        <%=form.text_field :account_type, class: "shadow"%>
+                <%= form.submit 'Add Account', class: "btn btn-primary ms-2 shadow"%>
+            </div>
             <%end%>
+            <br>
         </div>
     </div>
     <div class="border-bottom pt-5">
         <%= link_to "Edit this member", edit_member_path(@member) %> |
         <%= link_to "Back to members", members_path %>
-        <%= button_to "Destroy this member", @member, method: :delete %>
+        <br><br>
+        <%= button_to "Delete member", @member, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class: "btn btn-danger shadow" %>
+        <br>
     </div>
 </div>
