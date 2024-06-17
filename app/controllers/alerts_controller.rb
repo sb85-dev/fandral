@@ -1,5 +1,6 @@
 class AlertsController < ApplicationController
   before_action :set_alert, only: %i[ show edit update destroy ]
+  before_action :set_member, only: %i[ create ]
 
   # GET /alerts or /alerts.json
   def index
@@ -13,20 +14,25 @@ class AlertsController < ApplicationController
 
   # GET /alerts/new
   def new
-    @alert = Alert.new
+    set_member
+    @alert = @member.alerts.build
+    # @alert = Alert.new
   end
 
   # GET /alerts/1/edit
   def edit
+    @member = @alert.member
   end
 
   # POST /alerts or /alerts.json
   def create
-    @alert = Alert.new(alert_params)
+    set_member
+    # @alert = Alert.new(alert_params)
+    @alert = @member.alerts.build(alert_params)
 
     respond_to do |format|
       if @alert.save
-        format.html { redirect_to alert_url(@alert), notice: "Alert was successfully created." }
+        format.html { redirect_to member_alert_path(@member, @alert), notice: "Alert was successfully created." }
         format.json { render :show, status: :created, location: @alert }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +45,7 @@ class AlertsController < ApplicationController
   def update
     respond_to do |format|
       if @alert.update(alert_params)
-        format.html { redirect_to alert_url(@alert), notice: "Alert was successfully updated." }
+        format.html { redirect_to member_alert_path, notice: "Alert was successfully updated." }
         format.json { render :show, status: :ok, location: @alert }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,14 +57,18 @@ class AlertsController < ApplicationController
   # DELETE /alerts/1 or /alerts/1.json
   def destroy
     @alert.destroy!
-
+    @member = @alert.member
     respond_to do |format|
-      format.html { redirect_to alerts_url, notice: "Alert was successfully destroyed." }
+      format.html { redirect_to @member, notice: "Alert was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
+
+    def set_member
+        @member = Member.find(params[:member_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_alert
       @alert = Alert.find(params[:id])

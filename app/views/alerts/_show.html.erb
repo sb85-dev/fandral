@@ -1,0 +1,177 @@
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <p><strong>Member ID</strong></p>
+            </div>
+            <div class="col">
+                <%=@alert.member.id%><br><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p><strong>Date of Notice</strong></p>
+            </div>
+            <div class="col">
+                <%=@alert.date_of_notice%><br><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p><strong>Received From</strong></p>
+            </div>
+            <div class="col">
+                <%=@alert.received_from%><br><br>
+            </div>
+        </div>   
+        <div class="row">
+            <div class="col">
+                <p><strong>Type of Review</strong></p>
+            </div>
+            <div class="col">
+                <%=@alert.type_of_review%><br><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p><strong>Date of Oldest Account</strong></p>
+            </div>
+            <div class="col">
+                <%=@alert.date_oldest_account%><br><br>
+            </div>
+        </div>   
+        <div class="row">
+            <div class="col">
+                <p><strong>Decision</strong></p>
+            </div>
+            <div class="col">
+                <%=@alert.decision%><br><br>
+            </div>
+        </div>    
+        <div class="row">
+            <div class="col">
+                <p><strong>Monitor Until</strong></p>
+            </div>
+            <div class="col">
+                <%=@alert.monitor_until%><br><br>
+            </div>
+        </div> 
+
+        <div class="row">
+            <div class="col">
+                <p><strong>Document Requested?</strong></p>
+            </div>
+            <div class="col">
+                <%=@alert.document_request%><br><br>
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col">
+                <p><strong>Date of Document Request</strong></p>
+            </div>
+            <div class="col">
+                <%=@alert.date_documents_requested%><br><br>
+            </div>
+        </div> 
+ 
+    </div>
+    <div class="col">
+        <div class="row">   
+            <div class="col">
+                <p><strong>Assigned To</strong></p>
+            </div>
+            <div class="col">
+                <%=@alert.assigned_to%>
+            </div>
+        </div> 
+ 
+        <div class="row">   
+            <div class="col">
+                <p><strong>Fraud Flags</strong></p>
+            </div>
+            <div class="col">
+                <%=@alert.fraud_flags%>
+            </div>
+        </div> 
+        <div class="row">   
+            <div class="col">
+                <p><strong>FCA Maintain</strong></p>
+            </div>
+            <div class="col">
+                <%=@alert.fca_maintain%>
+            </div>
+        </div> 
+        <div class="row">   
+            <div class="col">
+                <p><strong>Loss</strong></p>
+            </div>
+            <div class="col">
+                <%=@alert.loss%>
+            </div>
+        </div> 
+        <div class="row">   
+            <div class="col">
+                <p><strong>Exposure</strong></p>
+            </div>
+            <div class="col">
+                <%=@alert.exposure%>
+            </div>
+        </div> 
+        <div class="row">   
+            <div class="col">
+                <p><strong>Funds Returned Reason</strong></p>
+            </div>
+            <div class="col">
+                <%=@alert.funds_returned_reason%>
+            </div>
+        </div> 
+        <div class="row">   
+            <div class="col">
+                <p><strong>External Account Added by</strong></p>
+            </div>
+            <div class="col">
+                <%=@alert.external_account%>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p><strong>Documents Received?</strong></p>
+            </div>
+            <div class="col">
+                <%=@alert.documents_received%><br><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p><strong>IDV Documents Received?</strong></p>
+            </div>
+            <div class="col">
+                <%=@alert.idv_docs_received%><br><br>
+            </div>
+        </div> 
+    </div>
+</div>
+<div class="row my-1">   
+    <div class="col-2">
+        <p><strong>FDRA Facts Notes</strong></p>
+    </div>
+    <div class="col-10 border border-sm">
+        <%=@alert.fdra_facts_notes%>
+    </div>
+</div> 
+<div class="row my-1">   
+    <div class="col-2">
+        <p><strong>OLB Review by LR</strong></p>
+    </div>
+    <div class="col-10 border border-sm">
+        <%=@alert.olb_review_by_lr%>
+    </div>
+</div>
+<div class="row my-1">   
+    <div class="col-2">
+        <p><strong>Background Review by LR</strong></p>
+    </div>
+    <div class="col-10 border border-sm">
+        <%=@alert.background_review_by_lr%>
+    </div>
+</div> 

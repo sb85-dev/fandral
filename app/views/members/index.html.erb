@@ -1,9 +1,10 @@
 <div class="container">
-    <p style="color: green"></p>
     <div class="row mx-1">
-        <h1>Members</h1><%= notice %><%= link_to "New member", new_member_path %>
+        <h1>Members</h1>
+        <div class="col-2">
+            <%= link_to "New member", new_member_path, class: "btn btn-outline-primary shadow" %>
+        </div>
         <br><br>
-        <div class="col-12", id="members">
             <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
                 <table class="table table-striped table-bordered shadowed">
                     <thead>

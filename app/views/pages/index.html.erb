@@ -1,10 +1,12 @@
 <div class="container">
     <h1>Alerts</h1>
+    <h5 class="lead">Create new alerts from the Member's page.</h5>
         <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>Member</th>
+                        <th>Assigned To</th>
                         <th>Days Open</th>
                         <th>Date Created</th>
                     </tr>
@@ -13,6 +15,7 @@
                     <% @alerts.each do |alert|%>
                     <tr>
                         <td><%= link_to alert.member.full_name, member_path(alert.member)%></td>
+                        <td><%= alert.assigned_to %></td>
                         <td><%= ((Time.current - alert.created_at.beginning_of_day)/86400).to_i%></td>
                         <td><%= alert.created_at.strftime("%m-%d-%y")%></td>
                     </tr>
