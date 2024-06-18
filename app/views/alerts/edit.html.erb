@@ -1,10 +1,15 @@
-<h1>Editing alert</h1>
-
-<%= render "form", alert: @alert %>
-
-<br>
-
-<div>
-  <%# <%= link_to "Show this alert", @alert %> | %>
-  <%# <%= link_to "Back to alerts", alerts_path %> %>
+<div class="container">
+    <div class="row mx-1">
+        <h1>Editing alert</h1>
+        <div class="row", id="members">
+            <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+                <%= render "form", alert: @alert %>
+            </div>
+        </div>
+    </div>
+    <div>
+        <%= link_to "Back to Alert", member_alert_path, class: "btn btn-outline-primary shadow" %> |
+        <%= link_to "Back to Member", @member, class: "btn btn-outline-primary shadow" %>
+    </div>
 </div>
+

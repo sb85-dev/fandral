@@ -1,9 +1,11 @@
-<h1>New alert</h1>
-
-<%= render "form", alert: @alert %>
-
-<br>
-
-<div>
-  <%= link_to "Back to alerts", root_path %>
+<div class="container">
+    <div class="row mx-1">
+        <h1>New alert</h1>
+        <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+            <%= render "form", alert: @alert %>
+        </div>
+        <div>
+            <%= link_to "Back to alerts", root_path, class: "btn btn-outline-primary shadow"%>
+        </div>
+    </div>
 </div>

@@ -9,113 +9,184 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :member_id, style: "display: block" %>
-    <%= form.text_field :member_id, :disabled=>true %>
-  </div>
-
-  <div>
-    <%= form.label :assigned_to, style: "display: block" %>
-    <%= form.text_field :assigned_to %>
-  </div>
-
-  <div>
-    <%= form.label :date_of_notice, style: "display: block" %>
-    <%= form.date_field :date_of_notice %>
-  </div>
-
-  <div>
-    <%= form.label :received_from, style: "display: block" %>
-    <%= form.text_field :received_from %>
-  </div>
-
-  <div>
-    <%= form.label :type_of_review, style: "display: block" %>
-    <%= form.text_field :type_of_review %>
-  </div>
-
-  <div>
-    <%= form.label :date_oldest_account, style: "display: block" %>
-    <%= form.date_field :date_oldest_account %>
-  </div>
-
-  <div>
-    <%= form.label :decision, style: "display: block" %>
-    <%= form.text_field :decision %>
-  </div>
-
-  <div>
-    <%= form.label :monitor_until, style: "display: block" %>
-    <%= form.date_field :monitor_until %>
-  </div>
-
-  <div>
-    <%= form.label :fca_maintain, style: "display: block" %>
-    <%= form.text_field :fca_maintain %>
-  </div>
-
-  <div>
-    <%= form.label :document_request, style: "display: block" %>
-    <%= form.check_box :document_request %>
-  </div>
-
-  <div>
-    <%= form.label :date_documents_requested, style: "display: block" %>
-    <%= form.date_field :date_documents_requested %>
-  </div>
-
-  <div>
-    <%= form.label :documents_received, style: "display: block" %>
-    <%= form.check_box :documents_received %>
-  </div>
-
-  <div>
-    <%= form.label :fdra_facts_notes, style: "display: block" %>
-    <%= form.text_area :fdra_facts_notes %>
-  </div>
-
-  <div>
-    <%= form.label :olb_review_by_lr, style: "display: block" %>
-    <%= form.text_area :olb_review_by_lr %>
-  </div>
-
-  <div>
-    <%= form.label :background_review_by_lr, style: "display: block" %>
-    <%= form.text_area :background_review_by_lr %>
-  </div>
-
-  <div>
-    <%= form.label :fraud_flags, style: "display: block" %>
-    <%= form.text_field :fraud_flags %>
-  </div>
-
-  <div>
-    <%= form.label :idv_docs_received, style: "display: block" %>
-    <%= form.check_box :idv_docs_received %>
-  </div>
-
-  <div>
-    <%= form.label :loss, style: "display: block" %>
-    <%= form.text_field :loss %>
-  </div>
-
-  <div>
-    <%= form.label :exposure, style: "display: block" %>
-    <%= form.text_field :exposure %>
-  </div>
-
-  <div>
-    <%= form.label :funds_returned_reason, style: "display: block" %>
-    <%= form.text_field :funds_returned_reason %>
-  </div>
-
-  <div>
-    <%= form.label :external_account, style: "display: block" %>
-    <%= form.text_field :external_account %>
-  </div>
-
-  <div>
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col"><p>
+                <%= form.label :member_id, style: "display: block" %></p>
+            </div>
+            <div class="col"><p>
+                <%= form.text_field :member_id, :disabled=>true %></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><p>
+                <%= form.label :date_of_notice, style: "display: block" %></p>
+            </div>
+            <div class="col"><p>
+                <%= form.date_field :date_of_notice %></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><p>
+                <%= form.label :received_from, style: "display: block" %></p>
+            </div>
+            <div class="col"><p>
+                <%= form.text_field :received_from %></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><p>
+                <%= form.label :type_of_review, style: "display: block" %></p>
+            </div>
+            <div class="col"><p>
+                <%= form.text_field :type_of_review %></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><p>
+                <%= form.label :date_oldest_account, style: "display: block" %></p>
+            </div>
+            <div class="col"><p>
+                <%= form.date_field :date_oldest_account %></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><p>
+                <%= form.label :decision, style: "display: block" %></p>
+            </div>
+            <div class="col"><p>
+                <%= form.text_field :decision %></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><p>
+                <%= form.label :monitor_until, style: "display: block" %></p>
+            </div>
+            <div class="col"><p>
+                <%= form.date_field :monitor_until %></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><p>
+                <%= form.label :document_request, style: "display: block" %></p>
+            </div>
+            <div class="col"><p>    
+                <%= form.check_box :document_request %></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><p>
+                <%= form.label :date_documents_requested, style: "display: block" %></p>
+            </div>
+            <div class="col"><p>
+                <%= form.date_field :date_documents_requested %></p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col"><p>
+                <%= form.label :assigned_to, style: "display: block" %></p>
+            </div>
+            <div class="col"><p>
+                <%= form.text_field :assigned_to %></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><p>
+                <%= form.label :fraud_flags, style: "display: block" %></p>
+            </div>
+            <div class="col"><p>
+                <%= form.text_field :fraud_flags %></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><p>
+                <%= form.label :fca_maintain, style: "display: block" %></p>
+            </div>
+            <div class="col"><p>
+                <%= form.text_field :fca_maintain %></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><p>
+                <%= form.label :loss, style: "display: block" %></p>
+            </div>
+            <div class="col"><p>
+                <%= form.text_field :loss %></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><p>
+                <%= form.label :exposure, style: "display: block" %></p>
+            </div>
+            <div class="col"><p>
+                <%= form.text_field :exposure %></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><p>
+                <%= form.label :funds_returned_reason, style: "display: block" %></p>
+            </div>
+            <div class="col"><p>
+                <%= form.text_field :funds_returned_reason %></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><p>
+                <%= form.label :external_account, style: "display: block" %></p>
+            </div>
+            <div class="col"><p>
+                <%= form.text_field :external_account %></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><p>
+                <%= form.label :documents_received, style: "display: block" %></p>
+            </div>
+            <div class="col"><p>
+                <%= form.check_box :documents_received %></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><p>
+                <%= form.label :idv_docs_received, style: "display: block" %></p>
+            </div>
+            <div class="col"><p>
+                <%= form.check_box :idv_docs_received %></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <%= form.label :fdra_facts_notes, style: "display: block" %>
+    </div>
+    <div class="col-10">
+        <%= form.text_area :fdra_facts_notes, class: "col-12" %>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <%= form.label :olb_review_by_lr, style: "display: block" %>
+    </div>
+    <div class="col-10">
+        <%= form.text_area :olb_review_by_lr, class: "col-12"%>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <%= form.label :background_review_by_lr, style: "display: block" %>
+    </div>
+    <div class="col-10">
+        <%= form.text_area :background_review_by_lr, class: "col-12" %>
+    </div>
+</div>
+<div>
     <%= form.submit %>
-  </div>
+</div>
 <% end %>
+
+
+
