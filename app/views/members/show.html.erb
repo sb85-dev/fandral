@@ -54,7 +54,7 @@
                         <%=form.label :number %>
                         <%=form.text_field :number, class: "shadow"%>
                         <%=form.label :account_type, class: "ms-2"%>
-                        <%=form.text_field :account_type, class: "shadow"%>
+                        <%=form.select :account_type,  options_for_select([['Primary','primary'],['Secondary','secondary']]), include_blank: 'Please Select', class: "shadow"%>
                 <%= form.submit 'Add Account', class: "btn btn-outline-primary ms-2 shadow"%>
             </div>
             <%end%>

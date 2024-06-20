@@ -106,7 +106,7 @@
                 <p><strong>Loss</strong></p>
             </div>
             <div class="col">
-                <%=@alert.loss%>
+                <%=number_to_currency(@alert.loss.to_s)%>
             </div>
         </div> 
         <div class="row">   
@@ -114,7 +114,7 @@
                 <p><strong>Exposure</strong></p>
             </div>
             <div class="col">
-                <%=@alert.exposure%>
+                <%=number_to_currency(@alert.exposure.to_s)%>
             </div>
         </div> 
         <div class="row">   

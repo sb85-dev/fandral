@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_13_220553) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_20_133232) do
   create_table "account_numbers", force: :cascade do |t|
     t.integer "number"
     t.integer "member_id", null: false
@@ -38,8 +38,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_13_220553) do
     t.text "background_review_by_lr"
     t.string "fraud_flags"
     t.boolean "idv_docs_received"
-    t.float "loss"
-    t.float "exposure"
+    t.decimal "loss", precision: 8, scale: 2
+    t.decimal "exposure", precision: 8, scale: 2
     t.string "funds_returned_reason"
     t.string "external_account"
     t.datetime "created_at", null: false

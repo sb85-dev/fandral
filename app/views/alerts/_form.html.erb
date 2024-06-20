@@ -40,7 +40,7 @@
                 <%= form.label :type_of_review, style: "display: block" %></p>
             </div>
             <div class="col"><p>
-                <%= form.text_field :type_of_review %></p>
+                <%= form.select :type_of_review, options_for_select([["Reg CC","Reg CC"],["Return","Return"],["Case Email","Case Email"],["FDRA External Xfer","FDRA External Xfer"],["FDRA New Account","FDRA New Account"],["FDRA Lookback","FDRA Lookback"],["PCT/OPS","PCT/OPS"]]), include_blank: 'Please Select' %></p>
             </div>
         </div>
         <div class="row">
@@ -56,7 +56,7 @@
                 <%= form.label :decision, style: "display: block" %></p>
             </div>
             <div class="col"><p>
-                <%= form.text_field :decision %></p>
+                <%= form.select :decision, options_for_select([['Blocked by Fraud, Case Investigations','Blocked by Fraud, Case Investigations'],['Refer FDRA Build Case','Refer FDRA Build Case'],["Reported to FH","Reported to FH"],["Monitor","Monitor"],["LR Refer to FH","LR Refer to FH"],["Non-Issue","Non-Issue"],["Request Documents","Request Documents"],["Request PCT Call","Request PCT Call"]]), include_blank: 'Please Select' %></p>
             </div>
         </div>
         <div class="row">
@@ -90,7 +90,7 @@
                 <%= form.label :assigned_to, style: "display: block" %></p>
             </div>
             <div class="col"><p>
-                <%= form.text_field :assigned_to %></p>
+                <%= form.select :assigned_to, options_for_select([["Jorge Rodriguez","Jorge Rodriguez"],["Mary Scinta","Mary Scinta"],["Cheryl Forth","Cheryl Forth"],["Laura Calchera","Laura Calchera"]]), include_blank: 'Please Select'  %></p>
             </div>
         </div>
         <div class="row">

@@ -1,0 +1,17 @@
+<div class="container text-center">
+    <div class="row mx-1">
+        <h1>search</h1>
+        <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+            <% if @members.present?%>
+                <%= @members.each do |member| %>
+                    <%= link_to member.full_name, member %>
+                <% end %>
+            <%end%>
+            <% if @numbers.present?%>
+                <%= @numbers.each do |number| %>
+                    <%= link_to number.member.full_name, number.member %>
+                <% end %>
+            <%end%>
+        </div>    
+    </div>
+</div>

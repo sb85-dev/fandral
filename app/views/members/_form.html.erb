@@ -31,7 +31,7 @@
                     <%=account_form.label :account_type %>
                 </div>
                 <div>
-                    <%=account_form.text_field :account_type %>
+                    <%=account_form.select :account_type, options_for_select([['Primary','primary'],['Secondary','secondary']]) %>
                 </div>
             <%end%>
             <br>
