@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'pages#index'
   get '/search', to: 'search#search'
+  get '/user_assigned', to: 'pages#user_assigned'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

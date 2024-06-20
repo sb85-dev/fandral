@@ -90,7 +90,7 @@
                 <%= form.label :assigned_to, style: "display: block" %></p>
             </div>
             <div class="col"><p>
-                <%= form.select :assigned_to, options_for_select([["Jorge Rodriguez","Jorge Rodriguez"],["Mary Scinta","Mary Scinta"],["Cheryl Forth","Cheryl Forth"],["Laura Calchera","Laura Calchera"]]), include_blank: 'Please Select'  %></p>
+                <%= form.select :assigned_to, User.all.collect {|u| [u.email]}, include_blank: 'Please Select'  %></p>
             </div>
         </div>
         <div class="row">

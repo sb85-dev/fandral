@@ -1,0 +1,34 @@
+
+<div class="container">
+    <h1><%=@user.email%></h1>
+        <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Member</th>
+                        <th>Assigned to</th>
+                        <th>Days Open</th>
+                        <th>Date Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%= Alert.where(assigned_to: @user.email).find_each do |alert|%>
+                        <tr>
+                            <td><%= link_to alert.member.full_name, alert.member %></td>
+                            <td><%= alert.assigned_to%></td>
+                            <td><%= ((Time.current - alert.created_at.beginning_of_day)/86400).to_i%></td>
+                            <td><%= alert.created_at.strftime("%m-%d-%y")%></td>
+                        </tr>
+                    <%end%>
+                </tbody>
+            </table>
+        <div class="row mx-auto">
+            <p>Page <%= @page+1%></p>
+        </div>
+    </div>
+    <div class="d-flex">
+    <%=link_to "First Page", root_path(page: 0), class: "btn btn-outline-primary mx-2 shadow"%>
+    <%=link_to "Previous Page", root_path(page: @page - 1), class: "btn btn-outline-primary mx-2 shadow"%>
+    <%= link_to "Next Page", root_path(page: @page + 1), class: "btn btn-outline-primary mx-2 shadow"%>
+    </div>
+</div>
