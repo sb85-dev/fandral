@@ -1,5 +1,5 @@
 
-<%= form_with(model: [@member, alert]) do |form| %>
+<%= form_with(model: [@member, alert], local: true) do |form| %>
   <% if alert.errors.any? %>
     <div style="color: red">
       <ul>
@@ -40,7 +40,7 @@
                 <%= form.label :type_of_review, style: "display: block" %></p>
             </div>
             <div class="col"><p>
-                <%= form.select :type_of_review, options_for_select([["Reg CC","Reg CC"],["Return","Return"],["Case Email","Case Email"],["FDRA External Xfer","FDRA External Xfer"],["FDRA New Account","FDRA New Account"],["FDRA Lookback","FDRA Lookback"],["PCT/OPS","PCT/OPS"]]), include_blank: 'Please Select' %></p>
+                <%= form.select :type_of_review, [["Reg CC"],["Return"],["Case Email"],["FDRA External Xfer"],["FDRA New Account"],["FDRA Lookback"],["PCT/OPS"]], include_blank: 'Please Select', selected: alert.type_of_review %></p>
             </div>
         </div>
         <div class="row">
@@ -56,7 +56,7 @@
                 <%= form.label :decision, style: "display: block" %></p>
             </div>
             <div class="col"><p>
-                <%= form.select :decision, options_for_select([['Blocked by Fraud, Case Investigations','Blocked by Fraud, Case Investigations'],['Refer FDRA Build Case','Refer FDRA Build Case'],["Reported to FH","Reported to FH"],["Monitor","Monitor"],["LR Refer to FH","LR Refer to FH"],["Non-Issue","Non-Issue"],["Request Documents","Request Documents"],["Request PCT Call","Request PCT Call"]]), include_blank: 'Please Select' %></p>
+                <%= form.select :decision, [['Blocked by Fraud, Case Investigations'],['Refer FDRA Build Case'],["Reported to FH"],["Monitor"],["LR Refer to FH"],["Non-Issue"],["Request Documents"],["Request PCT Call"]], include_blank: 'Please Select', selected: alert.decision %></p>
             </div>
         </div>
         <div class="row">

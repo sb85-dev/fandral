@@ -10,23 +10,21 @@
                     <thead>
                         <tr>
                             <th>Member Name</th>
-                            <th>Timer</th>
+                            <th>alerts</th>
                             <th>Date Added</th>
                             <th>Date Updated</th>
-                            <th>Status</th>
-                            <th>Alert Category</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <% @members.each do |member| %>
                             <%= render member %>
                             <tr>
-                                <td><%=link_to member.full_name, member%></td>
-                                <td>Placeholder for Timer</td>
-                                <td><%=member.created_at.strftime("%m-%d-%y")%></td>
-                                <td><%=member.updated_at.strftime("%m-%d-%y")%></td>
-                                <td>Placeholder for alert status (monitor, request doc etc)</td>
-                                <td>Placeholder for Alert Category (reg cc, chargeback etc)</td>
+                                <td><%=link_to member.full_name, member %></td>
+                                <td><%= member.alerts.count %></td>
+                                <td><%= member.created_at.strftime("%m-%d-%y") %></td>
+                                <td><%=member.updated_at.strftime("%m-%d-%y") %></td>
+
                             </tr>
                         <% end %>
                     </tbody>
