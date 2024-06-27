@@ -98,7 +98,7 @@
                 <%= form.label :fraud_flags, style: "display: block" %></p>
             </div>
             <div class="col"><p>
-                <%= form.text_field :fraud_flags %></p>
+                <%= form.select :fraud_flags, [["External Transfer Bank out of Area"],["Suspicious IP"],["Africa Logins"],["Foreign Logins"],["Third Party ACH"],["Multiple Cell Devices"],["Microdeposit Return"],["AOA Decline"],["PII Mismatch"],["PII Changed"],["Attempted NSF"],["Suspicious Fraud Opening Path"]], include_blank: "Please Select", selected: alert.fraud_flags %></p>
             </div>
         </div>
         <div class="row">
@@ -106,7 +106,7 @@
                 <%= form.label :fca_maintain, style: "display: block" %></p>
             </div>
             <div class="col"><p>
-                <%= form.text_field :fca_maintain %></p>
+                <%= form.select :fca_maintain, [["Yes"],["No"],["Yes then No"],["No then Yes"]], include_blank: 'Please Select', selected: alert.fca_maintain   %></p>
             </div>
         </div>
         <div class="row">
@@ -130,7 +130,7 @@
                 <%= form.label :funds_returned_reason, style: "display: block" %></p>
             </div>
             <div class="col"><p>
-                <%= form.text_field :funds_returned_reason %></p>
+                <%= form.select :funds_returned_reason, [["Unauthorized"],["Invalid Account"],["Account Closed"],["NSF"],["Account Number"],["NOC"],["Account Frozen"],["Account Not Found"],["Uncollected Funds"],["Stop Payment"],["Other"]], include_blank: "Please Select", selected: alert.funds_returned_reason %></p>
             </div>
         </div>
         <div class="row">
@@ -138,7 +138,7 @@
                 <%= form.label :external_account, style: "display: block" %></p>
             </div>
             <div class="col"><p>
-                <%= form.text_field :external_account %></p>
+                <%= form.select :external_account, [["Microdeposit"],["AOA"],["Unable to confirm"]], include_blank: 'Please Select', selected: alert.external_account  %></p>
             </div>
         </div>
         <div class="row">

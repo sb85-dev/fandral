@@ -7,6 +7,7 @@
                     <tr>
                         <th>Member</th>
                         <th>Assigned to</th>
+                        <th>Alert Type</th>
                         <th>Days Open</th>
                         <th>Date Created</th>
                     </tr>
@@ -16,6 +17,7 @@
                         <tr>
                             <td><%= link_to alert.member.full_name, alert.member %></td>
                             <td><%= alert.assigned_to%></td>
+                            <td><%= alert.type_of_review %></td>
                             <td><%= ((Time.current - alert.created_at.beginning_of_day)/86400).to_i%></td>
                             <td><%= alert.created_at.strftime("%m-%d-%y")%></td>
                         </tr>

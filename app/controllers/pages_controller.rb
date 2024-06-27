@@ -9,4 +9,7 @@ class PagesController < ApplicationController
     @page = params.fetch(:page,0).to_i
     @alerts = Alert.includes(:member).offset(@page*ALERTS_PER_PAGE).limit(ALERTS_PER_PAGE)
   end
+  def users
+    @users = User.all
+  end
 end
