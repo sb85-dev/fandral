@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_03_165232) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_03_162945) do
   create_table "account_numbers", force: :cascade do |t|
     t.integer "number"
     t.integer "member_id", null: false
@@ -53,13 +53,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_03_165232) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "requirement1"
-    t.boolean "requirement1_required", default: false, null: false
+    t.boolean "requirement1_required", default: false
     t.string "requirement2"
-    t.boolean "requirement2_required", default: false, null: false
+    t.boolean "requirement2_required", default: false
     t.string "requirement3"
-    t.boolean "requirement3_required", default: false, null: false
+    t.boolean "requirement3_required", default: false
     t.string "requirement4"
-    t.boolean "requirement4_required", default: false, null: false
+    t.boolean "requirement4_required", default: false
   end
 
   create_table "members", force: :cascade do |t|
