@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_20_133232) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_03_165232) do
   create_table "account_numbers", force: :cascade do |t|
     t.integer "number"
     t.integer "member_id", null: false
@@ -47,9 +47,42 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_20_133232) do
     t.index ["member_id"], name: "index_alerts_on_member_id"
   end
 
+  create_table "documents", force: :cascade do |t|
+    t.string "document_type"
+    t.text "document_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "requirement1"
+    t.boolean "requirement1_required", default: false, null: false
+    t.string "requirement2"
+    t.boolean "requirement2_required", default: false, null: false
+    t.string "requirement3"
+    t.boolean "requirement3_required", default: false, null: false
+    t.string "requirement4"
+    t.boolean "requirement4_required", default: false, null: false
+  end
+
   create_table "members", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email"
+  end
+
+  create_table "request_documents", force: :cascade do |t|
+    t.integer "request_id", null: false
+    t.integer "document_id", null: false
+    t.boolean "required"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["document_id"], name: "index_request_documents_on_document_id"
+    t.index ["request_id"], name: "index_request_documents_on_request_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.string "request_type"
+    t.string "products_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -68,4 +101,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_20_133232) do
 
   add_foreign_key "account_numbers", "members"
   add_foreign_key "alerts", "members"
+  add_foreign_key "request_documents", "documents"
+  add_foreign_key "request_documents", "requests"
 end

@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row mx-1">
+        <h1><%= @document.document_type%></h1>
+        <p>The following text will be displayed in the email to the member, when this document type is included in a request.</p>
+        <div class="row", id="documents">
+            <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+                <strong><%= @document.document_type%></strong><br>
+                <%= @document.document_description %><br>
+                <ul>
+                    <%if @document.requirement1_required == true%>
+                        <div><%=str = "\u2022" + @document.requirement1%></div>
+                    <%end%>
+                    <%if @document.requirement2_required == true%>
+                        <div><%=str = "\u2022" +@document.requirement2%></div>
+                    <%end%>
+                    <%if @document.requirement3_required == true%>
+                        <div><%=str = "\u2022" +@document.requirement3%></div>
+                    <%end%>
+                    <%if @document.requirement4_required == true%>
+                        <div><%=str = "\u2022" +@document.requirement4%></div>
+                    <%end%>
+                </ul>
+            </div>
+        </div>
+        <div>
+        <%= link_to "Edit this document", edit_document_path, class: "btn btn-outline-info shadow" %> |
+        <%= link_to "Back to Documents", "/documents", class: "btn btn-outline-primary shadow" %>
+
+        <%= button_to "Destroy this document", document_path(@document), method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class: "btn btn-outline-danger shadow mt-2"%>
+        </div>
+    </div>
+</div>

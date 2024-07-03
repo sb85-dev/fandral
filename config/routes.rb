@@ -4,10 +4,12 @@ Rails.application.routes.draw do
     resources :alerts
   end
   devise_for :users
-  root 'pages#index'
+  root 'pages#home'
   get '/search', to: 'search#search'
   get '/user_assigned', to: 'pages#user_assigned'
   get '/users', to: 'pages#users'
+  get '/alerts', to: 'pages#index'
+  resources :documents
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

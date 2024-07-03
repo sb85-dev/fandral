@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row mx-1">
+        <h1>Editing document</h1>
+        <div class="row", id="documents">
+            <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+                <%= render "form", document: @document %>
+            </div>
+        </div>
+    </div>
+    <div>
+        <%= link_to "Back to document", document_path, class: "btn btn-outline-primary shadow" %> |
+    </div>
+</div>

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  request: one
+  document: one
+  required: false
+
+two:
+  request: two
+  document: two
+  required: false

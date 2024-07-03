@@ -69,7 +69,7 @@ class MembersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def member_params
-      params.fetch(:member, {}).permit(:first_name, :last_name, account_numbers_attributes: [:id, :number, :account_type])
+      params.fetch(:member, {}).permit(:first_name, :last_name, :email, account_numbers_attributes: [:id, :number, :account_type])
     end
 
 end

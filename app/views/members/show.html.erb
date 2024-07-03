@@ -1,6 +1,8 @@
 <div class="container">
     <%= render @member %>
-    <h1 class="border-bottom"><%= @member.full_name%></h1>
+    <div class="border-bottom">
+        <h1><%= @member.full_name%></h1>
+    </div>
     <br>
     <div class="border-bottom">
         <h3>Alerts</h3>
@@ -26,6 +28,35 @@
                 </tbody>
             </table>
             <%= link_to "Add New Alert", new_member_alert_path(@member), class: "btn btn-outline-primary shadow"%>
+        </div>
+        <br>
+    </div>
+    <br>
+    This section us under construction, and will soon contain requests not alerts. 
+    <div class="border-bottom">
+        <h3>Request For Information</h3>
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Request ID</th>
+                        <th>Member ID</th>
+                        <th>Days Open</th>
+                        <th>Date Sent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @member.alerts.each do |alert|%>
+                    <tr>
+                        <td><%= link_to alert.id, member_alert_path(@member, alert), data: {turbo_frame: 'new_alert'} %></td>
+                        <td><%= alert.member.id %></td>
+                        <td><%= ((Time.current - alert.created_at.beginning_of_day)/86400).to_i%></td>
+                        <td><%= alert.created_at.strftime("%m-%d-%y")%></td>
+                    </tr>
+                    <%end%>
+                </tbody>
+            </table>
+            <%= link_to "Generate New Request", new_member_alert_path(@member), class: "btn btn-outline-primary shadow"%>
         </div>
         <br>
     </div>
