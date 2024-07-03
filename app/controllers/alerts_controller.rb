@@ -11,7 +11,7 @@ class AlertsController < ApplicationController
   def show
 
   end
-
+ 
   # GET /alerts/new
   def new
     set_member

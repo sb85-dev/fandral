@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row mx-1">
+        <h1>Editing Request</h1>
+        <div class="row", id="members">
+            <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+                <%=render "form", request: @request %>
+            </div>
+        </div>
+    </div>
+    <div>
+    <%= link_to "Back to Request", @member_request, class: "btn btn-outline-primary shadow" %> |
+    <%= link_to "Back to Member", @member, class: "btn btn-outline-primary shadow" %>
+    </div>
+</div>

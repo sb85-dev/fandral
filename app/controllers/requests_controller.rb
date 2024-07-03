@@ -30,13 +30,13 @@ class RequestsController < ApplicationController
         @request = @member.requests.build(request_params)
     
         respond_to do |format|
-        if @request.save
-            format.html { redirect_to member_requests_path(@member, @request), notice: "Request was successfully created." }
-            format.json { render :show, status: :created, location: @request }
-        else
-            format.html { render :new, status: :unprocessable_entity }
-            format.json { render json: @request.errors, status: :unprocessable_entity }
-        end
+            if @request.save
+                format.html { redirect_to @member, notice: "Request was successfully created." }
+                format.json { render :show, status: :created, location: @request }
+            else
+                format.html { render :new, status: :unprocessable_entity }
+                format.json { render json: @request.errors, status: :unprocessable_entity }
+            end
         end
     end
     

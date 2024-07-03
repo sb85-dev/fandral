@@ -1,0 +1,31 @@
+<%= form_with(model: [@member, @request], local: true) do |form| %>
+  <% if @request.errors.any? %>
+    <div style="color: red">
+      <ul>
+        <% @request.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+    <div class="col-2"><p>
+        <%= form.label :product_type, style: "display: block" %></p>
+    </div>
+    <div class="col-10"><p>
+        <%= form.select :products_type, [["Deposit"],["Credit Card"],["Other"]], include_blank: 'Please Select', selected: @request.products_type  %></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2"><p>
+        <%= form.label :request_type, style: "display: block" %></p>
+    </div>
+    <div class="col-10"><p>
+        <%= form.select :request_type, [["RFI"],["Other"]], include_blank: 'Please Select', selected: @request.request_type  %></p>
+    </div>
+</div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
