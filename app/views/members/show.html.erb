@@ -47,12 +47,12 @@
                 </thead>
                 <tbody>
                     <% @member.requests.each do |request|%>
-                    <tr>
-                        <td><%= link_to request.request_type, member_request_path(@member, request), data: {turbo_frame: 'new_alert'} %></td>
-                        <td><%= request.products_type %></td>
-                        <td><%= ((Time.current - request.created_at.beginning_of_day)/86400).to_i%></td>
-                        <td><%= request.created_at.strftime("%m-%d-%y")%></td>
-                    </tr>
+                        <tr>
+                            <td><%= link_to request.request_type, member_request_path(@member, request), data: {turbo_frame: 'new_alert'} %></td>
+                            <td><%= request.products_type %></td>
+                            <td><%= ((Time.current - request.created_at.beginning_of_day)/86400).to_i%></td>
+                            <td><%= request.created_at.strftime("%m-%d-%y")%></td>
+                        </tr>
                     <%end%>
                 </tbody>
             </table>
