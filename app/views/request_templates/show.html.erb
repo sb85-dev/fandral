@@ -1,0 +1,52 @@
+<div class="container">
+<br><br>
+    <div class="row mx-1">
+    <br>
+        <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+            <h3>Subject: <%=@request_template.subject%></h3>
+            <br>
+            <p><%=@request_template.greeting%></p>
+            <p><%=@request_template.greeting_line_two%></p>
+            <br>
+            <p style="color:darkblue;"><strong><%=@request_template.call_to_action%></strong></p>
+            <p><span style="font-weight: bold; color: darkorange;">Step One: </span><%=@request_template.step_one%></p>
+            <p><span style="font-weight: bold; color: darkorange;">Step Two: </span><%=@request_template.step_two%></p>
+            <div class="mx-1">
+                <% @documents.each do |doc|%>
+                    <p style="color:darkred; font-style:italic;">if <%=doc.document_type%> is required</p>
+                    <p><strong><%=doc.document_description%></strong></p>
+                    <ul>
+                        <%if doc.requirement1_required == true%>
+                            <div><%= str = "\u2022" + " " +doc.requirement1%></div>
+                        <%end%>
+                        <%if doc.requirement2_required == true%>
+                            <div><%= str = "\u2022" + " " +doc.requirement2%></div>
+                        <%end%>
+                        <%if doc.requirement3_required == true%>
+                            <div><%= str = "\u2022" + " " +doc.requirement3%></div>
+                        <%end%>
+                        <%if doc.requirement4_required == true%>
+                            <div><%= str = "\u2022" + " " +doc.requirement4%></div>
+                        <%end%>
+                    </ul>
+                <%end%>
+            </div>
+            <div style="background-color:lightgrey; margin:50px;text-align:center; color:darkblue;">
+                <br><p><strong><%=@request_template.footer_header%></strong></p>
+                <%=@request_template.complete_by %> (date dependant on product type).<br>
+                <%=@request_template.incomplete%><br>
+                <br>
+            </div>
+            <p><span style="font-weight: bold; color: darkorange;">Questions?</span></p>
+            <%=str = "\u2022" + " " +@request_template.questions%> <%=@request_template.hours_of_operation%><br>
+            <%=str = "\u2022" + " " +@request_template.email%> <%=@request_template.phone_numbers%>
+
+        </div>
+        <div>
+        <%= link_to "Edit this request template", edit_request_template_path(@request_template), class: "btn btn-outline-info shadow"  %> |
+        <%= link_to "Back to request templates", request_templates_path, class: "btn btn-outline-primary shadow" %>
+
+        <%= button_to "Destroy this request template", @request_template, method: :delete, form: { data: {turbo_confirm: "Are you sure?"}}, class: "btn btn-outline-danger shadow mt-2"%>
+        </div>
+    </div>
+</div>

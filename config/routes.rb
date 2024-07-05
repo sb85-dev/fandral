@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   resources :members do
     resources :account_numbers, only: [:new, :create]
     resources :alerts
@@ -10,8 +11,10 @@ Rails.application.routes.draw do
   get '/user_assigned', to: 'pages#user_assigned'
   get '/users', to: 'pages#users'
   get '/alerts', to: 'pages#index'
+  get '/requests', to: 'pages#requests'
   resources :documents
-
+  resources :request_templates
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

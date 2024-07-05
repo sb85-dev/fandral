@@ -1,0 +1,120 @@
+<%= form_with(model: request_template) do |form| %>
+    <% if request_template.errors.any? %>
+        <div style="color: red">
+            <h2><%= pluralize(request_template.errors.count, "error") %> prohibited this request_template from being saved:</h2>
+
+            <ul>
+                <% request_template.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <div class="row">
+        <div class="col-2"><p>
+            <%= form.label :subject, style: "display:block"%></p>
+        </div>
+        <div class="col-10"><p>
+            <%=form.text_field :subject, class: "col-12"%></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"><p>
+            <%= form.label :greeting, style: "display:block"%></p>
+        </div>
+        <div class="col-10"><p>
+            <%=form.text_field :greeting, class: "col-12"%></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"><p>
+            <%= form.label :greeting_line_two, style: "display:block"%></p>
+        </div>
+        <div class="col-10"><p>
+            <%=form.text_field :greeting_line_two, class: "col-12"%></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"><p>
+            <%= form.label :call_to_action, style: "display:block"%></p>
+        </div>
+        <div class="col-10"><p>
+            <%=form.text_field :call_to_action, class: "col-12"%></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"><p>
+            <%= form.label :step_one, style: "display:block"%></p>
+        </div>
+        <div class="col-10"><p>
+            <%=form.text_area :step_one, class: "col-12"%></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"><p>
+            <%= form.label :step_two, style: "display:block"%></p>
+        </div>
+        <div class="col-10"><p>
+            <%=form.text_area :step_two, class: "col-12"%></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"><p>
+            <%= form.label :footer_header, style: "display:block"%></p>
+        </div>
+        <div class="col-10"><p>
+            <%=form.text_field :footer_header, class: "col-12"%></p>
+        </div>
+    </div> 
+    <div class="row">
+        <div class="col-2"><p>
+            <%= form.label :complete_by, style: "display:block"%></p>
+        </div>
+        <div class="col-10"><p>
+            <%=form.text_field :complete_by, class: "col-12"%></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"><p>
+            <%= form.label :incomplete, style: "display:block"%></p>
+        </div>
+        <div class="col-10"><p>
+            <%=form.text_field :incomplete, class: "col-12"%></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"><p>
+            <%= form.label :questions, style: "display:block"%></p>
+        </div>
+        <div class="col-10"><p>
+            <%=form.text_area :questions, class: "col-12"%></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"><p>
+            <%= form.label :hours_of_operation, style: "display:block"%></p>
+        </div>
+        <div class="col-10"><p>
+            <%=form.text_field :hours_of_operation, class: "col-12"%></p>
+        </div>
+    </div> 
+    <div class="row">
+        <div class="col-2"><p>
+            <%= form.label :email, style: "display:block"%></p>
+        </div>
+        <div class="col-10"><p>
+            <%=form.text_field :email, class: "col-12"%></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"><p>
+            <%= form.label :phone_numbers, style: "display:block"%></p>
+        </div>
+        <div class="col-10"><p>
+            <%=form.text_field :phone_numbers, class: "col-12"%></p>
+        </div>
+    </div>
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>

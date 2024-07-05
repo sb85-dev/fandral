@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row mx-1">
+        <h1>Request templates</h1>
+        <div class="col-2">
+            <%= link_to "New request template", new_request_template_path, class: "btn btn-outline-primary shadow" %>
+        </div>
+        <br><br>
+        <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+            <table class="table table-striped table-bordered shadowed">
+                <thead>
+                    <tr>
+                        <th>Request Template Type</th>
+                        <th>Created at</th>
+                        <th>Updated at</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @request_templates.each do |request_template| %>
+                        <tr>
+                            <td><%=link_to request_template.subject, request_template %></td>
+                            <td><%=request_template.created_at%></td>
+                            <td><%=request_template.updated_at%></td>
+                        </tr>
+                    <%end%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

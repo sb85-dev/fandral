@@ -1,0 +1,34 @@
+<div class="container">
+    <h1>Requests for Information</h1>
+    <h5 class="lead">Create new requests from the Member's page.</h5>
+        <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Member</th>
+                        <th>Product Type</th>
+                        <th>Days Open</th>
+                        <th>Date Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @requests.each do |request|%>
+                    <tr>
+                        <td><%= link_to request.member.full_name, member_path(request.member)%></td>
+                        <td><%= request.products_type %></td>
+                        <td><%= ((Time.current - request.created_at.beginning_of_day)/86400).to_i%></td>
+                        <td><%= request.created_at.strftime("%m-%d-%y")%></td>
+                    </tr>
+                    <%end%>
+                </tbody>
+            </table>
+        <div class="row mx-auto">
+            <p>Page <%= @page+1%></p>
+        </div>
+    </div>
+    <div class="d-flex">
+    <%=link_to "First Page", requests_path(page: 0), class: "btn btn-outline-primary mx-2 shadow"%>
+    <%=link_to "Previous Page", requests_path(page: @page - 1), class: "btn btn-outline-primary mx-2 shadow"%>
+    <%= link_to "Next Page", requests_path(page: @page + 1), class: "btn btn-outline-primary mx-2 shadow"%>
+    </div>
+</div>

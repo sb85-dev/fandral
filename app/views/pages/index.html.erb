@@ -29,8 +29,8 @@
         </div>
     </div>
     <div class="d-flex">
-    <%=link_to "First Page", root_path(page: 0), class: "btn btn-outline-primary mx-2 shadow"%>
-    <%=link_to "Previous Page", root_path(page: @page - 1), class: "btn btn-outline-primary mx-2 shadow"%>
-    <%= link_to "Next Page", root_path(page: @page + 1), class: "btn btn-outline-primary mx-2 shadow"%>
+    <%=link_to "First Page", alerts_path(page: 0), class: "btn btn-outline-primary mx-2 shadow"%>
+    <%=link_to "Previous Page", alerts_path(page: @page - 1), class: "btn btn-outline-primary mx-2 shadow"%>
+    <%= link_to "Next Page", alerts_path(page: @page + 1), class: "btn btn-outline-primary mx-2 shadow"%>
     </div>
 </div>

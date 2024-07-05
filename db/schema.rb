@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_05_132721) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_05_201034) do
   create_table "account_numbers", force: :cascade do |t|
     t.integer "number"
     t.integer "member_id", null: false
@@ -78,6 +78,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_05_132721) do
     t.datetime "updated_at", null: false
     t.index ["document_id"], name: "index_request_documents_on_document_id"
     t.index ["request_id"], name: "index_request_documents_on_request_id"
+  end
+
+  create_table "request_templates", force: :cascade do |t|
+    t.string "subject"
+    t.string "greeting"
+    t.string "greeting_line_two"
+    t.text "step_one"
+    t.text "step_two"
+    t.string "footer_header"
+    t.text "complete_by"
+    t.text "questions"
+    t.string "hours_of_operation"
+    t.string "email"
+    t.string "phone_numbers"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "call_to_action"
+    t.string "incomplete"
   end
 
   create_table "requests", force: :cascade do |t|
