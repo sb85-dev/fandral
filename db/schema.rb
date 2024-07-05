@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_03_162945) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_05_132721) do
   create_table "account_numbers", force: :cascade do |t|
     t.integer "number"
     t.integer "member_id", null: false
@@ -53,13 +53,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_03_162945) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "requirement1"
-    t.boolean "requirement1_required", default: false
+    t.boolean "requirement1_required", default: false, null: false
     t.string "requirement2"
-    t.boolean "requirement2_required", default: false
+    t.boolean "requirement2_required", default: false, null: false
     t.string "requirement3"
-    t.boolean "requirement3_required", default: false
+    t.boolean "requirement3_required", default: false, null: false
     t.string "requirement4"
-    t.boolean "requirement4_required", default: false
+    t.boolean "requirement4_required", default: false, null: false
   end
 
   create_table "members", force: :cascade do |t|
@@ -85,6 +85,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_03_162945) do
     t.string "products_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "member_id", null: false
+    t.index ["member_id"], name: "index_requests_on_member_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -99,8 +101,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_03_162945) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "versions", force: :cascade do |t|
+    t.string "item_type", null: false
+    t.bigint "item_id", null: false
+    t.string "event", null: false
+    t.string "whodunnit"
+    t.text "object", limit: 1073741823
+    t.datetime "created_at"
+    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
+  end
+
   add_foreign_key "account_numbers", "members"
   add_foreign_key "alerts", "members"
   add_foreign_key "request_documents", "documents"
   add_foreign_key "request_documents", "requests"
+  add_foreign_key "requests", "members"
 end

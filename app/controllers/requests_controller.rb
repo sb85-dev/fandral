@@ -31,6 +31,7 @@ class RequestsController < ApplicationController
     
         respond_to do |format|
             if @request.save
+                RequestMailer.with(member: @request.member).request_created.deliver_later
                 format.html { redirect_to @member, notice: "Request was successfully created." }
                 format.json { render :show, status: :created, location: @request }
             else
