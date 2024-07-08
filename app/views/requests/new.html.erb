@@ -1,11 +1,15 @@
-<div class="container">
-    <div class="row mx-1">
-        <h1>New Request</h1>
-        <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
-            <%= render "form", alert: @request %>
-        </div>
-        <div>
-            <%= link_to "Back to member", @member, class: "btn btn-outline-primary shadow"%>
+<%= turbo_frame_tag "request_modal" do%>
+    <div class="request_modal">
+        <div class="container">
+            <div class="row mx-1">
+                <h1>New Request</h1>
+                <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+                    <%= render "form", alert: @request %>
+                </div>
+                <div>
+                    <%= link_to "Back to member", @member, class: "btn btn-outline-primary shadow", data: {controller: "request_modal", action: "modals#close"}%>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+<%end%>

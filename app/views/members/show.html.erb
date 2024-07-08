@@ -1,3 +1,4 @@
+<%= turbo_frame_tag "request_modal"%>
 <div class="container">
     <%= render @member %>
     <div class="border-bottom">
@@ -19,7 +20,7 @@
                 <tbody>
                     <% @member.alerts.each do |alert|%>
                     <tr>
-                        <td><%= link_to alert.id, member_alert_path(@member, alert), data: {turbo_frame: 'new_alert'} %></td>
+                        <td><%= link_to alert.id, member_alert_path(@member, alert)%></td>
                         <td><%= alert.member.id %></td>
                         <td><%= ((Time.current - alert.created_at.beginning_of_day)/86400).to_i%></td>
                         <td><%= alert.created_at.strftime("%m-%d-%y")%></td>
@@ -48,7 +49,7 @@
                 <tbody>
                     <% @member.requests.each do |request|%>
                         <tr>
-                            <td><%= link_to request.request_type, member_request_path(@member, request), data: {turbo_frame: 'new_alert'} %></td>
+                            <td><%= link_to request.request_type, member_request_path(@member, request)%></td>
                             <td><%= request.products_type %></td>
                             <td><%= ((Time.current - request.created_at.beginning_of_day)/86400).to_i%></td>
                             <td><%= request.created_at.strftime("%m-%d-%y")%></td>
@@ -56,7 +57,7 @@
                     <%end%>
                 </tbody>
             </table>
-            <%= link_to "Generate New Request", new_member_request_path(@member), class: "btn btn-outline-primary shadow"%>
+            <%= link_to "Generate New Request", new_member_request_path(@member), class: "btn btn-outline-primary shadow", data: {turbo_frame: "request_modal"} %>
         </div>
         <br>
     </div>
