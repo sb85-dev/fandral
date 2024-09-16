@@ -16,7 +16,7 @@ class RequestsController < ApplicationController
     def new
         set_member
         @request = @member.requests.build
-        # @alert = Alert.new
+        @documents = Document.all
     end
     
     # GET /alerts/1/edit
@@ -75,7 +75,7 @@ class RequestsController < ApplicationController
     
         # Only allow a list of trusted parameters through.
         def request_params
-        params.require(:request).permit(:member_id, :request_type, :products_type)
+        params.require(:request).permit(:member_id, :request_type, :products_type, request_documents_attributes: [:id, :document_id, :_destroy])
         end
 
       
