@@ -5,12 +5,18 @@
             <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
                  <p>Request Type: <%=@request.request_type%></p>
                  <p>Product Type: <%=@request.products_type%></p>
+                 <p>Documents</p> 
+                 <ul>
+                    <%@request.documents.each do |document|%>
+                        <li><%=document.document_type%></li>
+                    <%end%>
+                 <ul>
                  <p>Date Created: <%=@request.created_at.strftime("%m-%d-%y")%></p>
                  <p>Date Updated: <%=@request.updated_at.strftime("%m-%d-%y")%></p>
             </div>
         </div>
         <div>
-        <%= link_to "Edit this request", edit_member_request_path(@request), class: "btn btn-outline-info shadow" %> |
+        <%= link_to "Edit this request", edit_member_request_path(@request.member, @request), class: "btn btn-outline-info shadow" %> |
         <%= link_to "Back to Member", "../", class: "btn btn-outline-primary shadow" %>
 
         <%= button_to "Destroy this request", @member_request, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class: "btn btn-outline-danger shadow mt-2"%>

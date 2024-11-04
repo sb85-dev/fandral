@@ -1,6 +1,7 @@
 class RequestsController < ApplicationController
     before_action :set_request, only: %i[ show edit update destroy ]
-    before_action :set_member, only: %i[ create ]
+    before_action :set_member, only: %i[ new create ]
+    before_action :set_documents, only: %i[new edit update create]
     
 
     def index
@@ -9,24 +10,25 @@ class RequestsController < ApplicationController
     
 
     def show
-    
+        @request = Request.find(params[:id])
+        @documents = @request.documents
     end
     
 
     def new
-        set_member
         @request = @member.requests.build
         @documents = Document.all
     end
     
     # GET /alerts/1/edit
     def edit
+        @request = Request.find(params[:id])
         @member = @request.member
     end
     
 
     def create
-        set_member
+
         @request = @member.requests.build(request_params)
     
         respond_to do |format|
@@ -34,6 +36,7 @@ class RequestsController < ApplicationController
                 format.html { redirect_to @member, notice: "Request was successfully created." }
                 format.json { render :show, status: :created, location: @request }
             else
+                @documents = Document.all
                 format.html { render :new, status: :unprocessable_entity }
                 format.json { render json: @request.errors, status: :unprocessable_entity }
             end
@@ -72,10 +75,13 @@ class RequestsController < ApplicationController
         def set_request
         @request = Request.find(params[:id])
         end
-    
+        
+        def set_documents
+            @documents = Document.all
+        end
         # Only allow a list of trusted parameters through.
         def request_params
-        params.require(:request).permit(:member_id, :request_type, :products_type, request_documents_attributes: [:id, :document_id, :_destroy])
+            params.require(:request).permit(:member_id, :request_type, :products_type, document_ids: [], request_documents_attributes: [:id, :request_id, :document_id, :required, :_destroy])
         end
 
       

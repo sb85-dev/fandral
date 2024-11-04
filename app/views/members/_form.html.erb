@@ -24,20 +24,20 @@
                 <%=f.label :email %>
                 <%=f.email_field :email, autofocus: true, autocomplete: "name", class: "w-100 border border-black shadow p-2", placeholder: "Enter the Member's email here"%>
             </div>
-            <%=f.fields_for :account_numbers do |account_form| %>
-                <div>
-                    <%=account_form.label :account_number %>
-                </div>
-                <div>
-                    <%=account_form.text_field :number %>
-                </div>
-                <div>
-                    <%=account_form.label :account_type %>
-                </div>
-                <div>
-                    <%=account_form.select :account_type, options_for_select([['Primary','primary'],['Secondary','secondary']]) %>
-                </div>
-            <%end%>
+                <%# <%=f.fields_for :account_numbers do |account_form| %>
+                    <%# <div> %>
+                        <%# <%=account_form.label :account_number %>
+                    <%# </div> %>
+                    <%# <div> %>
+                        <%# <%=account_form.text_field :number %>
+                    <%# </div> %>
+                    <%# <div> %>
+                        <%# <%=account_form.label :account_type %>
+                    <%# </div> %>
+                    <%# <div> %>
+                        <%# <%=account_form.select :account_type, options_for_select([['Primary','primary'],['Secondary','secondary']]) %>
+                    <%# </div> %>
+                <%# <%end%>
             <br>
             <div>
                 <%= f.submit %>

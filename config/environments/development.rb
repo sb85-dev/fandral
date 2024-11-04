@@ -2,7 +2,8 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.hosts << "port-3000-ruby-lemon-kangaroo-sb85-dev.preview.codeanywhere.com"
+#   config.hosts << "port-3000-ruby-lemon-kangaroo-sb85-dev.preview.codeanywhere.com"
+  config.hosts << "port-3000-main-sb85-dev.preview.codeanywhere.com"
 
 
   
