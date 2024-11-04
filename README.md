@@ -1,6 +1,6 @@
 # README
 
-fandral - Fraud and Restricted Account Log, is a new web app designed to be used by the fraud team, to track fraud cases on member accounts. 
+fandral - Fraud and Restricted Account Log, is a new web app designed to be used by the FLOB and OPS team, to track fraud cases on member accounts, and to create resuests to be sent to members based on requests for information, not available through LOS. 
 
 rails 7.1.3.3
 ruby 3.0.0
@@ -9,14 +9,8 @@ devise
 
 
 To come:
-Paginate Members
-Add RFI to members index
-Time out requests
-Time out alerts
-Admin page for Users
-Fix Admin bootstrap dropdown
-Remove hidden text field from document edit page, to allow text to always show. 
-Set up emails for requests
-Set up attach documents to request
-Turbo Modal for Alerts 
-Clean up mobile views
+Create automated messaging.
+Create follow up message flow.
+Create close out of requests.
+Add version history to requests. 
+
