@@ -66,9 +66,8 @@ class RequestTemplatesController < ApplicationController
     def set_request_template
       @request_template = RequestTemplate.find(params[:id])
     end
-
     # Only allow a list of trusted parameters through.
     def request_template_params
-      params.require(:request_template).permit(:subject, :greeting, :greeting_line_two, :step_one, :step_two, :footer_header, :complete_by, :questions, :hours_of_operation, :email, :phone_numbers, :call_to_action, :incomplete)
+      params.require(:request_template).permit(:subject, :greeting, :greeting_line_two, :step_one, :step_two, :footer_header, :complete_by, :questions, :hours_of_operation, :email, :phone_numbers, :call_to_action, :incomplete, :request, :product, :rfi_date)
     end
 end

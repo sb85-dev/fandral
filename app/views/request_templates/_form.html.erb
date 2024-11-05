@@ -12,6 +12,30 @@
     <% end %>
     <div class="row">
         <div class="col-2"><p>
+            <%= form.label :product, style: "display:block"%></p>
+        </div>
+        <div class="col-10"><p>
+            <%= form.select :product, [["Deposit"],["Credit Card"],["Other"]], include_blank: 'Please Select', selected: @request_template.product, class: "col-12"%></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"><p>
+            <%= form.label :request, style: "display:block"%></p>
+        </div>
+        <div class="col-10"><p>
+            <%= form.select :request, [["RFI"],["Other"]], include_blank: 'Please Select', selected: @request_template.request, class: "col-12"%></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"><p>
+            <%= form.label :rfi_date, style: "display:block"%></p>
+        </div>
+        <div class="col-10"><p>
+            <%=form.number_field :rfi_date, class: "col-1"%></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"><p>
             <%= form.label :subject, style: "display:block"%></p>
         </div>
         <div class="col-10"><p>

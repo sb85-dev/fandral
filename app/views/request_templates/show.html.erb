@@ -33,7 +33,7 @@
             </div>
             <div style="background-color:lightgrey; margin:50px;text-align:center; color:darkblue;">
                 <br><p><strong><%=@request_template.footer_header%></strong></p>
-                <%=@request_template.complete_by %> (date dependant on product type).<br>
+                <%=@request_template.complete_by %> <%= (Date.today + @request_template.rfi_date).strftime("%m/%d/%Y")%>.<br>
                 <%=@request_template.incomplete%><br>
                 <br>
             </div>

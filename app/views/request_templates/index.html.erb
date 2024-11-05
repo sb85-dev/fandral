@@ -10,16 +10,18 @@
                 <thead>
                     <tr>
                         <th>Request Template Type</th>
-                        <th>Created at</th>
-                        <th>Updated at</th>
+                        <th>Product</th>
+                        <th>Request</th>
+                        <th>Days</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% @request_templates.each do |request_template| %>
                         <tr>
                             <td><%=link_to request_template.subject, request_template %></td>
-                            <td><%=request_template.created_at%></td>
-                            <td><%=request_template.updated_at%></td>
+                            <td><%=request_template.product%></td>
+                            <td><%=request_template.request%></td>
+                            <td><%=request_template.rfi_date%></td>
                         </tr>
                     <%end%>
                 </tbody>
